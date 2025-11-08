@@ -29,9 +29,9 @@ with left:
             st.error(str(e))
 
     st.subheader("2) Subject & Greeting")
-    st.caption("Use double curly placeholders like {{FullName}} or {{Institution}}. Subject supports Python-style {FullName}.")
+    st.caption("Use double curly placeholders like {{Full Name}} or {{Institution}}. Subject supports Python-style {FullName}.")
     subject_t = st.text_input("Subject pattern", value="Invitation to our event for {FullName}")
-    greeting_t = st.text_input("Greeting (optional)", value="Dear {{FullName}},")
+    greeting_t = st.text_input("Greeting (optional)", value="Dear {{Full Name}},")
 
     st.subheader("3) Per-Group Templates")
     st.caption("Pick a Group column (e.g., Group) and define a template per group value. If a row's group is missing, the fallback template will be used.")
@@ -49,7 +49,7 @@ with left:
             with st.expander(f"Define templates for {len(unique_groups)} group values", expanded=True):
                 for g in unique_groups:
                     group_templates[g] = st.text_area(f"Template for group '{g}'", height=140,
-                        value=f"Hello {{FullName}},<br>You are in group '{g}'. We look forward to seeing you at {{Institution}}.")
+                        value=f"Hello {{Full Name}},<br>You are in group '{g}'. We look forward to seeing you at {{Institution}}.")
 
     st.subheader("4) CTA Button")
     form_link = st.text_input("Form Link (CTA target)", value=DEFAULT_FORM_LINK)
